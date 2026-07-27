@@ -1,31 +1,3 @@
-import os
-import tempfile
-
-import pytest
-from fastapi.testclient import TestClient
-
-os.environ["JWT_SECRET"] = "test-secret-key-for-pytest"
-os.environ["DATABASE_URL"] = "sqlite:///" + os.path.join(
-    tempfile.gettempdir(), "test_officekanban.db"
-)
-
-from backend.database import Base, engine
-from backend.main import app
-
-
-@pytest.fixture(autouse=True)
-def setup_db():
-    Base.metadata.drop_all(bind=engine)
-    Base.metadata.create_all(bind=engine)
-    yield
-
-
-@pytest.fixture()
-def client():
-    with TestClient(app) as c:
-        yield c
-
-
 def test_register_and_login(client):
     r = client.post("/auth/register", json={"username": "testuser", "password": "secret123"})
     assert r.status_code == 201
@@ -88,8 +60,8 @@ def test_protected_endpoint_requires_auth(client):
     assert r.status_code == 401
 
 
-def test_protected_endpoint_with_token_returns_501(client):
+def test_protected_endpoint_with_token_returns_200(client):
     r = client.post("/auth/register", json={"username": "board_user", "password": "secret123"})
     token = r.json()["access_token"]
     r2 = client.get("/boards", headers={"Authorization": f"Bearer {token}"})
-    assert r2.status_code == 501
+    assert r2.status_code == 200

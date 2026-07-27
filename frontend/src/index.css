@@ -252,3 +252,134 @@ body {
   font-size: 16px;
   padding: var(--space-7) 0;
 }
+
+/* ---- Danger button ---- */
+.btn-danger {
+  background: var(--color-danger);
+  color: #FFFFFF;
+  border: none;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn-danger:hover {
+  background: var(--color-danger_hover);
+}
+
+.btn-danger:active {
+  transform: scale(0.97);
+}
+
+.btn-danger:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-danger:focus-visible {
+  outline: 2px solid var(--color-danger);
+  outline-offset: 2px;
+}
+
+/* ---- Board list ---- */
+.board-list-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-5);
+}
+
+.board-list-error {
+  background: var(--color-danger);
+  color: #FFFFFF;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  font-size: 14px;
+}
+
+.board-list-create {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-5);
+}
+
+.board-list-create-btn {
+  flex-shrink: 0;
+  width: auto;
+  white-space: nowrap;
+}
+
+.board-list-input {
+  flex: 1;
+  background: var(--color-surface);
+  color: var(--color-fg);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-family: inherit;
+  min-height: 48px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.board-list-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(59, 111, 245, 0.15);
+}
+
+.board-list {
+  list-style: none;
+}
+
+.board-list-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.board-list-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.board-list-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  gap: var(--space-1);
+}
+
+.board-list-item-edit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 48px;
+}
+
+.board-list-title-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--color-fg);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  padding: var(--space-0) var(--space-1);
+  min-height: 44px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.board-list-title-btn:hover {
+  background: var(--color-surface_hover);
+  color: var(--color-accent);
+}
+
+.board-list-actions {
+  display: flex;
+  gap: var(--space-0);
+  flex-shrink: 0;
+}

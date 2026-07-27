@@ -1,12 +1,16 @@
 import os
+import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .auth import JWT_SECRET
-from .database import Base, engine
-from .routers import auth, boards, cards, columns
+from backend.auth import JWT_SECRET
+from backend.database import Base, engine
+from backend.routers import auth, boards, cards, columns
 
 
 @asynccontextmanager

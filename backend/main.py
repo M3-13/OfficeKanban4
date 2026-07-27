@@ -4,9 +4,9 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.auth import JWT_SECRET
-from backend.database import Base, engine
-from backend.routers import auth, boards, cards, columns
+from .auth import JWT_SECRET
+from .database import Base, engine
+from .routers import auth, boards, cards, columns
 
 
 @asynccontextmanager

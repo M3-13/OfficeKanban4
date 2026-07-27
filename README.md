@@ -29,7 +29,6 @@ npm install
 ### Backend (dev server, port 8000)
 
 ```bash
-cd backend
 JWT_SECRET=your-secret-key uvicorn backend.main:app --reload
 ```
 

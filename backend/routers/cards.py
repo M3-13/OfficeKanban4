@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 
-from backend.auth import get_current_user
+from ..auth import get_current_user
 
 router = APIRouter(prefix="/columns/{column_id}/cards", tags=["cards"])
 

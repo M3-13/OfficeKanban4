@@ -39,6 +39,20 @@ def create_board(
     return board
 
 
+@router.get("/{board_id}", response_model=BoardResponse)
+def get_board(
+    board_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    board = db.query(Board).filter(Board.id == board_id).first()
+    if board is None:
+        raise HTTPException(status_code=404, detail="Board not found")
+    if board.owner_id != current_user.id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    return board
+
+
 @router.put("/{board_id}", response_model=BoardResponse)
 def update_board(
     board_id: int,

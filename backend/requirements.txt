@@ -2,6 +2,7 @@ fastapi
 uvicorn
 sqlalchemy
 python-jose
-bcrypt
+passlib[bcrypt]
+bcrypt<5.0
 pytest
 httpx

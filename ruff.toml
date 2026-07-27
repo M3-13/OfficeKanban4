@@ -16,6 +16,7 @@ select = [
 ]
 ignore = [
     "E501",        # line too long — we leave that to the formatter
+    "B008",        # Depends() in FastAPI function signatures is standard
 ]
 
 [lint.per-file-ignores]

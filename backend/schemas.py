@@ -71,6 +71,11 @@ class CardUpdate(BaseModel):
     column_id: int | None = None
 
 
+class CardMove(BaseModel):
+    column_id: int
+    position: int
+
+
 class CardResponse(BaseModel):
     id: int
     title: str
